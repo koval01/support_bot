@@ -1,6 +1,7 @@
 import logging
 from aiogram import Bot, Dispatcher
-from filters import IsOwnerFilter, IsAdminFilter, MemberCanRestrictFilter
+from filters import IsOwnerFilter, IsAdminFilter
+from aiogram.contrib.fsm_storage.redis import RedisStorage2
 import config
 
 # Configure logging
@@ -12,9 +13,13 @@ if not config.BOT_TOKEN:
 
 # init
 bot = Bot(token=config.BOT_TOKEN, parse_mode="HTML")
-dp = Dispatcher(bot)
+dp = Dispatcher(bot, storage=RedisStorage2(
+    host=config.REDIS_CONNECT["host"],
+    port=config.REDIS_CONNECT["port"],
+    pool_size=config.REDIS_CONNECT["max_connections"],
+    prefix="aiogram_sprt_"
+))
 
 # activate filters
 dp.filters_factory.bind(IsOwnerFilter)
 dp.filters_factory.bind(IsAdminFilter)
-dp.filters_factory.bind(MemberCanRestrictFilter)
