@@ -30,3 +30,8 @@ async def send_question(message: types.Message):
 @dp.message_handler(chat_type=[ChatType.SUPERGROUP, ChatType.GROUP], content_types=ContentType.TEXT)
 async def send_answer(message: types.Message):
     await GroupLogic(message).send_from_group
+
+
+@dp.message_handler(content_types=ContentType.ANY)
+async def error_handler(message: types.Message):
+    await message.reply(answers.messages["unsupported_message"])
