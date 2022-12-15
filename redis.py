@@ -15,5 +15,8 @@ class Redis:
     async def set_key(self, key: str, value: str, expire: int | timedelta = None) -> aioredis.Redis:
         return await self.session.set(key, value, expire)
 
-    async def get_key(self, key: str) -> str:
+    async def get_key(self, key: str) -> aioredis.Redis:
         return await self.session.get(key)
+
+    async def remove_key(self, key: str) -> aioredis.Redis:
+        return await self.session.delete(key)

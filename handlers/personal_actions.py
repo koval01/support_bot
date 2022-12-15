@@ -3,6 +3,7 @@ from aiogram.types import ChatType, ContentType
 
 from dispatcher import dp
 import config
+import logging as log
 import answers
 from group_logic import GroupLogic
 from checker import Checker
@@ -29,7 +30,11 @@ async def send_question(message: types.Message):
 
 @dp.message_handler(chat_type=[ChatType.SUPERGROUP, ChatType.GROUP], content_types=ContentType.TEXT)
 async def send_answer(message: types.Message):
-    await GroupLogic(message).send_from_group
+    try:
+        await GroupLogic(message).send_from_group
+    except Exception as e:
+        log.warning("Send answer error : %s" % e)
+        await message.reply(answers.messages["error_answer"])
 
 
 @dp.message_handler(content_types=ContentType.ANY)
