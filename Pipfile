@@ -9,6 +9,7 @@ pip = "*"
 setuptools = "*"
 wheel = "*"
 aioredis = "*"
+aiomysql = "*"
 
 [dev-packages]
 

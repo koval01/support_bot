@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "53dd986e8f6ba4296d3ca8144105685bcb64eef652d2ba790a3a3c16235883a7"
+            "sha256": "4984fe1982b9694eeb11b382160f49c37112c37e5a4396879bc12904357d0922"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -116,6 +116,14 @@
             ],
             "markers": "python_version >= '3.6'",
             "version": "==3.8.3"
+        },
+        "aiomysql": {
+            "hashes": [
+                "sha256:0d686c4fdae6b67d1825d8be60fa3b0e644fca2c84d3c936d850fc259c8e107e",
+                "sha256:b66fa1481ca71c5ee0d933ec3abf51f6136543a3710ba80b134eb33da7ed6f13"
+            ],
+            "index": "pypi",
+            "version": "==0.1.1"
         },
         "aioredis": {
             "hashes": [
@@ -356,6 +364,14 @@
             ],
             "index": "pypi",
             "version": "==22.3.1"
+        },
+        "pymysql": {
+            "hashes": [
+                "sha256:41fc3a0c5013d5f039639442321185532e3e2c8924687abe6537de157d403641",
+                "sha256:816927a350f38d56072aeca5dfb10221fe1dc653745853d30a216637f5d7ad36"
+            ],
+            "markers": "python_version >= '3.6'",
+            "version": "==1.0.2"
         },
         "pytz": {
             "hashes": [

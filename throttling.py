@@ -86,7 +86,7 @@ class ThrottlingMiddleware(BaseMiddleware):
 
         # Prevent flooding
         if throttled.exceeded_count <= 2:
-            await message.reply(answers.answer % (answers.messages["anti_flood_many"], "Система"))
+            await message.reply(answers.messages["anti_flood_many"])
 
         # Sleep.
         await asyncio.sleep(delta)
